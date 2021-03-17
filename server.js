@@ -55,7 +55,7 @@ app.use('/profile', profileControllers)
 
 //home route
 app.get('/', (req, res)=> {
-    res.send('home awoo')
+    res.render('home.ejs')
 })
 
 app.listen(PORT,()=>{
