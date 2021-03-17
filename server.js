@@ -9,6 +9,20 @@ const methodOverride = require('method-override')
 //database
 const mongoURI = process.env.MONGODBURI
 
+const db = mongoose.connection;
+
+mongoose.connect(mongoURI, {
+    useFindAndModify: false,
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}, ()=> {
+    console.log("db connection checked")
+})
+
+db.on('error', (err)=> { console.log('ERROR: ', err)});
+db.on('connected', ()=> { console.log("mongo connected")})
+db.on('disconnected', ()=> { console.log("mongo disconnected")})
+
 //middleware
 app.use(methodOverride('_method'))
 app.use(express.static('public'))
@@ -39,6 +53,10 @@ app.use('/merch', merchControllers)
 const profileControllers = require('./controllers/profile.js')
 app.use('/profile', profileControllers)
 
+//home route
+app.get('/', (req, res)=> {
+    res.send('home awoo')
+})
 
 app.listen(PORT,()=>{
     console.log('Server is listening');
