@@ -1,7 +1,24 @@
 <%- include('./partials/header.ejs') %>
 <%- include('./partials/nav.ejs') %>
 <main>
-    <p>SHOW PAGE</p>
+    <h2><%=game.name%> (<%=game.year%>)</h2>
+    <img class = "showImg" src="/assets/<%=game.img%>" alt="">
+    <span>
+        <p id = desc>Description</p>
+        <p>"<%=game.description%>"</p>
+    </span>
+    <div>
+        <h4>Price: $<%=game.price%>.00</h4>
+        <h4>Platforms: <%=game.platform%></h4>
+    </div>
+    <% if (game.qty > 0) { %>
+        <img id = "buyShow" src="/assets/buy.png" alt="Buy Now">
+        <h3><%=game.qty%> left in stock</h3>
+<%  } else { %>
+        <img id = "soldShow" src="/assets/soldOut.png" alt="Sold Out">
+<% } %>
+    <br>
+    <a href="/games">back</a>
 </main>
 
 
