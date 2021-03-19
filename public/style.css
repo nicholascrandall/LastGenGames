@@ -1,3 +1,21 @@
 #seed {
     font-size: 45px;
 }
+.gameImg {
+    height: 300px;
+    width: 300px;
+}
+#buy {
+    height: 50px;
+    width: 125px;
+}
+#sold {
+    height: 120px;
+    width: 220px;
+}
+footer, h1 {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+}

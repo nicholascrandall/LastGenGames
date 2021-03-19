@@ -3,6 +3,7 @@ const router = express.Router();
 
 const Game = require('../models/games')
 
+//games index
 router.get('/', (req, res) => {
    Game.find({}, (err, foundGames, next) => {
        if(err) {
@@ -10,7 +11,7 @@ router.get('/', (req, res) => {
            next(err)
        } else {
            res.render('index.ejs', {
-               games: foundGames
+               games: foundGames,
            })
        }
    })
@@ -55,5 +56,13 @@ router.get('/seed', (req, res) => {
     })
 })
 
+//games show
+router.get('/:id', (req, res) => {
+    Game.findById(req.params.id, (err, foundGame) => {
+        res.render('show.ejs', {
+            game: foundGame,
+        })
+    })
+})
 
 module.exports = router;

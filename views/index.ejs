@@ -7,9 +7,19 @@
     <ul>
         <% for(let i = 0; i < games.length; i++) { %>
             <li>
-                <p>game</p>
+                <img class = "gameImg" src="/assets/<%=games[i].img%>" alt="">
+                <div>
+                    <a href="/games/<%=games[i].id%>"> <%= games[i].name %> </a>
+                    <p><%=games[i].platform%></p>
+                    <p>$<%=games[i].price%>.00</p>
+                </div>
 
-
+                <% if (games[i].qty > 0) { %>
+                    <img id = "buy" src="/assets/buy.png" alt="Buy Now">
+                    <p><%=games[i].qty%> left in stock</p>
+            <%   } else { %>
+                    <img id = "sold" src="/assets/soldOut.png" alt="Sold Out">
+           <% } %>
             </li>
       <%  } %>
 
