@@ -1,6 +1,22 @@
 <%- include('./partials/header.ejs') %>
 <%- include('./partials/nav.ejs') %>
+<main>
+    <% if (games.length < 1) { %>
+        <a id = "seed" href="/games/seed">Display Games</a>
+   <% } %>
+    <ul>
+        <% for(let i = 0; i < games.length; i++) { %>
+            <li>
+                <p>game</p>
 
+
+            </li>
+      <%  } %>
+
+    </ul>
+
+
+</main>
 
 
 <%- include('./partials/footer.ejs') %>
