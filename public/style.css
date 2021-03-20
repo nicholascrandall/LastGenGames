@@ -36,3 +36,10 @@ footer, h1 {
     font-size: larger;
     text-decoration: underline;
 }
+.home {
+    display: flex;
+}
+a img {
+    height: 500px;
+    width: 500px;
+}

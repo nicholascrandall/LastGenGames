@@ -17,6 +17,11 @@ router.get('/', (req, res) => {
    })
 })
 
+//new game
+router.get('/new', (req, res) => {
+    res.render('new.ejs')
+})
+
 
 //games seeding
 router.get('/seed', (req, res) => {
@@ -62,6 +67,46 @@ router.get('/:id', (req, res) => {
         res.render('show.ejs', {
             game: foundGame,
         })
+    })
+})
+
+//games POST
+router.post('/', (req, res) => {
+    Game.create(req.body, (err, createdGame) => {
+        if (err) {
+            console.log(err);
+            res.send(err);
+        } else {
+            console.log(createdGame);
+            res.redirect('/games')
+        }
+    })
+})
+
+//DELETE game
+router.delete('/:id', (req, res) => {
+    Game.findbyIdAndRemove(req.params.id, (err, data) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(data);
+            res.redirect('/games')
+        }
+    })
+})
+
+//EDIT route
+router.get('/:id/edit', (req, res) => {
+    Game.findById(req.params.id, (err, foundGame) => {
+        res.render('edit.ejs', {
+            game: foundGame
+        })
+    })
+})
+//UPDATE route
+router.put('/:id', (req, res) => {
+    Game.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedGame) => {
+        res.redirect('/games')
     })
 })
 
