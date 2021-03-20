@@ -8,7 +8,8 @@ const gameSchema= new Schema({
     year: Number,
     img: String,
     price: {type: Number, min: 0, default: 0},
-    qty: {type: Number, min: 0, default: 0},
+    qty: {type: Number, min: 0, default: 1},
+    user: {type: Boolean, default: true}
 });
 
 const Game = model('Game', gameSchema)

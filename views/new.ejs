@@ -1,6 +1,42 @@
 <%- include('./partials/header.ejs') %>
 <%- include('./partials/nav.ejs') %>
+<main>
+    <h2>List your own game!</h2>
 
+    <form action="/games" method="POST">
+        <label>
+            <span>Name:</span>
+            <input type="text" name="name" />
+        </label>
+        
+        <label>
+            <span>Platform:</span>
+            <input type="text" name="platform" />
+        </label>
 
+        <label>
+            <span>Description:</span>
+            <input type="text" name="description" />
+        </label>
+        
+        <label>
+            <span>Year Released:</span>
+            <input type="number" name="year" />
+        </label>
+        
+        <label>
+            <span>Image:</span>
+            <input type="text" name="img" />
+        </label>
+
+        <label>
+            <span>Price:</span>
+            <input type="number" name="price" />
+        </label>
+        <br>
+        <br>
+        <input type="submit" value="List Game" />
+    </form>
+</main>
 
 <%- include('./partials/footer.ejs') %>

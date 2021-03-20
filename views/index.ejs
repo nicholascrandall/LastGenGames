@@ -7,12 +7,20 @@
     <ul>
         <% for(let i = 0; i < games.length; i++) { %>
             <li>
-                <img class = "gameImg" src="/assets/<%=games[i].img%>" alt="">
+                <img class = "gameImg" id = "<%=games[i].id%>" src="/assets/<%=games[i].img%>" alt="game pic">
                 <div>
                     <a href="/games/<%=games[i].id%>"> <%= games[i].name %> </a>
                     <p><%=games[i].platform%></p>
                     <p>$<%=games[i].price%>.00</p>
                 </div>
+                <% if (games[i].user === true) { %>
+                    <a href="/games/<%=games[i].id%>/edit">Edit</a>
+            
+                    <form method="POST" action="/games/<%= games[i].id %>?_method=DELETE">
+                    <button>Delete</button>
+                    </form>
+                    <br>
+               <% } %>
 
                 <% if (games[i].qty > 0) { %>
                     <img id = "buy" src="/assets/buy.png" alt="Buy Now">
@@ -20,13 +28,14 @@
             <%   } else { %>
                     <img id = "sold" src="/assets/soldOut.png" alt="Sold Out">
            <% } %>
+            
             </li>
       <%  } %>
 
     </ul>
-    <a href="/games/new">Looking to sell your own copy of an older game on our store? Add it with this link!</a>
+
+    <a href="/games/new" class="center">Looking to sell your own copy of an older game on our store? Add it with this link!</a>
 
 </main>
-
 
 <%- include('./partials/footer.ejs') %>

@@ -34,6 +34,7 @@ router.get('/seed', (req, res) => {
             img: "OOT.jpeg",
             price: 40,
             qty: 3,
+            user: false,
         },
         {
             name: "Spyro the Dragon",
@@ -43,6 +44,7 @@ router.get('/seed', (req, res) => {
             img: "Spyro_the_Dragon.jpg",
             price: 30,
             qty: 1,
+            user: false,
         },
         {
             name: "Super Mario Sunshine",
@@ -52,6 +54,7 @@ router.get('/seed', (req, res) => {
             img: "Super_mario_sunshine.jpg",
             price: 20,
             qty: 0,
+            user: false,
         }
     ], (err, data) => {
         if (err) {
@@ -85,7 +88,7 @@ router.post('/', (req, res) => {
 
 //DELETE game
 router.delete('/:id', (req, res) => {
-    Game.findbyIdAndRemove(req.params.id, (err, data) => {
+    Game.findByIdAndRemove(req.params.id, (err, data) => {
         if (err) {
             console.log(err);
         } else {
@@ -95,7 +98,7 @@ router.delete('/:id', (req, res) => {
     })
 })
 
-//EDIT route
+//EDIT game
 router.get('/:id/edit', (req, res) => {
     Game.findById(req.params.id, (err, foundGame) => {
         res.render('edit.ejs', {
@@ -103,7 +106,8 @@ router.get('/:id/edit', (req, res) => {
         })
     })
 })
-//UPDATE route
+
+//UPDATE game
 router.put('/:id', (req, res) => {
     Game.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedGame) => {
         res.redirect('/games')

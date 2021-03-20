@@ -13,7 +13,7 @@
     height: 120px;
     width: 220px;
 }
-footer, h1 {
+.center {
   margin: auto;
   width: 50%;
   padding: 10px;
@@ -42,4 +42,7 @@ footer, h1 {
 a img {
     height: 500px;
     width: 500px;
+}
+li {
+    list-style: none;
 }
