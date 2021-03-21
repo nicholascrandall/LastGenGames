@@ -3,8 +3,18 @@ const router = express.Router();
 
 const Merch = require('../models/merch')
 
+//merch index
 router.get('/', (req, res) => {
-    res.send('hey')
-})
+    Merch.find({}, (err, foundMerch, next) => {
+        if(err) {
+            console.log(err);
+            next(err)
+        } else {
+            res.render('./merch/index.ejs', {
+                merch: foundMerch,
+            })
+        }
+    })
+ })
 
 module.exports = router;
