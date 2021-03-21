@@ -1,7 +1,28 @@
 <%- include('../partials/header.ejs') %>
 <%- include('../partials/nav.ejs') %>
 <main>
-    <h4>MERCH PAGE</h4>
+    <% if (merch.length < 1) { %>
+        <a id = "seed" href="/merch/seed">Display Merch</a>
+   <% } %>
+    <ul>
+        <% for(let i = 0; i < merch.length; i++) { %>
+            <li>
+                <img class = "merchImg" id = "<%=merch[i].id%>" src="/assets/<%=merch[i].img%>" alt="merch pic">
+                <div>
+                    <a href="/merch/<%=merch[i].id%>"> <%= merch[i].name %> </a>
+                    <p>$<%=merch[i].price%>.00</p>
+                </div> 
+                <% if (merch[i].qty > 0) { %>
+                    <img id = "buy" src="/assets/buy.png" alt="Buy Now">
+                    <p><%=merch[i].qty%> left in stock</p>
+            <%   } else { %>
+                    <img id = "sold" src="/assets/soldOut.png" alt="Sold Out">
+           <% } %>
+            
+            </li>
+      <%  } %>
+
+    </ul> 
 
 </main>
 
