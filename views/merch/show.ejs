@@ -1,5 +1,23 @@
 <%- include('../partials/header.ejs') %>
 <%- include('../partials/nav.ejs') %>
-
+<main>
+    <h2><%=merch.name%></h2>
+    <img class = "showImg" src="/assets/<%=merch.img%>" alt="">
+    <span>
+        <p id = desc>Description</p>
+        <p>"<%=merch.description%>"</p>
+    </span>
+    <div>
+        <h4>Price: $<%=merch.price%>.00</h4>
+    </div>
+    <% if (merch.qty > 0) { %>
+        <img id = "buyShow" src="/assets/buy.png" alt="Buy Now">
+        <h3><%=merch.qty%> left in stock</h3>
+<%  } else { %>
+        <img id = "soldShow" src="/assets/soldOut.png" alt="Sold Out">
+<% } %>
+    <br>
+    <a href="/merch">back</a>
+</main>
 
 <%- include('../partials/footer.ejs') %>

@@ -49,5 +49,13 @@ router.get('/seed', (req, res) => {
     })
 })
 
+//merch show
+router.get('/:id', (req, res) => {
+    Merch.findById(req.params.id, (err, foundMerch) => {
+        res.render('./merch/show.ejs', {
+            merch: foundMerch,
+        })
+    })
+})
 
 module.exports = router;
