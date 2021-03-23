@@ -6,7 +6,7 @@ const profileSchema= new Schema({
     about: String,
     avatar: String, //image URL
     birthday: Date,
-password: String,
+    password: String,
 });
 
 const Profile = model('Profile', profileSchema)
