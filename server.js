@@ -30,11 +30,13 @@ app.use(express.urlencoded({extended: true}));
 app.use((req, res, next) => {
     next()
   })
-app.use(session({
-    secret: process.env.SECRET,
-    resave: false, // default more info: https://www.npmjs.com/package/express-session#resave
-    saveUninitialized: false // default  more info: https://www.npmjs.com/package/express-session#resave
-}))
+app.use(
+    session({
+        secret: process.env.SECRET,
+        resave: false,
+        saveUninitialized: false
+    })
+)
 const isAuthenticated = (req, res, next) => {
     console.log('her')
     if (req.session.currentUser) {
@@ -45,17 +47,25 @@ const isAuthenticated = (req, res, next) => {
 }
 //CONTROLLERS
 const gameControllers = require('./controllers/games.js')
-app.use('/games', gameControllers)
+app.use('/games', isAuthenticated, gameControllers)
 
 const merchControllers = require('./controllers/merch.js')
-app.use('/merch', merchControllers)
+app.use('/merch', isAuthenticated, merchControllers)
 
 const profileControllers = require('./controllers/profile.js')
-app.use('/profile', profileControllers)
+app.use('/profile', isAuthenticated, profileControllers)
+
+const usersControllers = require('./controllers/users.js')
+app.use('/users', isAuthenticated,  usersControllers);
+
+const sessionsControllers = require('./controllers/sessions.js')
+app.use('/sessions', sessionsControllers);
 
 //home route
 app.get('/', (req, res)=> {
-    res.render('home.ejs')
+    res.render('home.ejs', {
+        currentUser: req.session.currentUser
+    })
 })
 
 app.listen(PORT,()=>{
