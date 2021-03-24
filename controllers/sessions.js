@@ -5,21 +5,11 @@ const User = require('../models/users')
 
 // USER NEW ROUTE
 router.get('/new', (req, res) => {
-    res.render('sessions/new.ejs', { currentUser: req.session.currentUser})
+    res.render('./sessions/new.ejs', { currentUser: req.session.currentUser})
 })
 
 // USER LOGIN ROUTE (CREATE SESSION ROUTE)
 router.post('/', (req, res) => {
-
-    // look it up in the DB for a user that match req.body.username OK
-
-    // if success - then compare the password
-        // if success match - then login user and create session OK
-
-        // if NOT Succes - send a message back to the browser "invalid password" OK
-
-    // if NOT Succes - send a message back to the browser "user not found" OK
-
 
     User.findOne({ username: req.body.username}, (err, foundUser) => {
         if (err) {
@@ -34,7 +24,7 @@ router.post('/', (req, res) => {
                     //login user and create session
                     req.session.currentUser = foundUser
 
-                    res.redirect('/fruits')
+                    res.redirect('/')
 
                 }
                 else{
@@ -43,7 +33,7 @@ router.post('/', (req, res) => {
 
             }
             else{
-                res.send("<h1>user not found</h1>")
+                res.send("<h1>This username does not exist.</h1> <br> <a href="/users/new">Register an account here</a>")
             }
         }
     })

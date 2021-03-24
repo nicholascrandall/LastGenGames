@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
        } else {
            res.render('index.ejs', {
                games: foundGames,
+               currentUser: req.session.currentUser
            })
        }
    })
@@ -19,7 +20,7 @@ router.get('/', (req, res) => {
 
 //new game
 router.get('/new', (req, res) => {
-    res.render('new.ejs')
+    res.render('new.ejs', {currentUser: req.session.currentUser})
 })
 
 
@@ -69,6 +70,7 @@ router.get('/:id', (req, res) => {
     Game.findById(req.params.id, (err, foundGame) => {
         res.render('show.ejs', {
             game: foundGame,
+            currentUser: req.session.currentUser
         })
     })
 })
@@ -102,7 +104,8 @@ router.delete('/:id', (req, res) => {
 router.get('/:id/edit', (req, res) => {
     Game.findById(req.params.id, (err, foundGame) => {
         res.render('edit.ejs', {
-            game: foundGame
+            game: foundGame,
+            currentUser: req.session.currentUser
         })
     })
 })

@@ -19,7 +19,7 @@ router.post('/', (req, res)=>{
     User.create(req.body, (err, createdUser)=>{
         if  (err){
             if (err.code===11000){
-                res.send('USER already exist!!!')
+                res.send("<h1>An account with this username already exists.</h1> <br> <a href="/users/new">Try another username</a>")
             }
             else{
                 res.send(err)

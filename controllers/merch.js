@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
         } else {
             res.render('./merch/index.ejs', {
                 merch: foundMerch,
+                currentUser: req.session.currentUser
             })
         }
     })
@@ -54,6 +55,7 @@ router.get('/:id', (req, res) => {
     Merch.findById(req.params.id, (err, foundMerch) => {
         res.render('./merch/show.ejs', {
             merch: foundMerch,
+            currentUser: req.session.currentUser
         })
     })
 })
