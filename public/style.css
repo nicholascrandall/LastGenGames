@@ -46,6 +46,10 @@ a img {
     height: 500px;
     width: 500px;
 }
+nav {
+    display: flex;
+    flex-flow: column-reverse wrap;
+}
 li {
     float: left;
     /* border-right: 1px solid #bbb; */
@@ -76,6 +80,14 @@ a:visited {
 a:hover {
     color: red;
 }
-#nav li {
+#nav li, .right li {
     margin-right: 10px;
 }
+.right {
+    position: fixed;
+    align-self: flex-end
+    top: 0;
+    width: 100%;
+    font-size: 24px;
+}
+
