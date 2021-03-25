@@ -2,11 +2,10 @@ const mongoose = require('mongoose')
 const {Schema, model} = mongoose
 
 const profileSchema= new Schema({
-    name: {type: String, required: true},
-    about: String,
-    avatar: String, //image URL
-    birthday: Date,
-    password: String,
+    username: {type: String, required: true},
+    about: {type: String, default: ""},
+    avatar: {type: String, default: ""},
+    birthday: {type: String, default: "01/01/2000"}
 });
 
 const Profile = model('Profile', profileSchema)

@@ -5,7 +5,7 @@
     <li><a href="/merch">Merch</a></li>
 
     <% if (currentUser) { %>
-        <li><a href="/profile">Profile</a></li>
+        <li><a href="/profile/<%=currentUser.username%>">Profile</a></li>
         <li>
             <form action="/sessions?_method=DELETE" method="POST">
                 <button>Log out</button>
