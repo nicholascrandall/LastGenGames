@@ -79,3 +79,22 @@ a:hover {
 #nav li, .right li {
     margin-right: 10px;
 }
+.avatar {
+    height: 350px;
+    width: 350px;
+}
+#box {
+    border: 1px solid black;
+    margin-top: 10px;
+}
+#box p {
+    margin-left: 5px;
+}
+#editsubmit {
+    top: 300px;
+    position: relative;
+}
+.top {
+    margin-top: 0;
+    text-decoration: underline;
+}

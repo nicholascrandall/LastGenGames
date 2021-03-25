@@ -1,5 +1,13 @@
 <%- include('../partials/header.ejs') %>
 <%- include('../partials/nav.ejs') %>
-<h1><%=user.username%>'s Profile</h1>
+<img class = "avatar" src="<%=user.avatar%>" alt="">
+<h1><%=user.username%></h1>
+
+<a href="/profile/<%=user.username%>/edit">Edit your profile</a>
+
+<div id="box">
+    <p class="top"><em>about <%=user.username%></em></p>
+    <p><%=user.about%></p>
+</div>
 
 <%- include('../partials/footer.ejs') %>

@@ -28,12 +28,12 @@ router.post('/', (req, res) => {
 
                 }
                 else{
-                    res.send("<h1>invalid password</h1>")
+                    res.send("<h1>invalid password</h1> <br> <a href='/sessions/new'>Return to login</a>")
                 }    
 
             }
             else{
-                res.send("<h1>This username does not exist.</h1> <br> <a href='/users/new'>Register an account here</a>")
+                res.send("<h1>This username does not exist.</h1> <br> <a href='/users/new'>Register an account here</a> <br> <br> <a href='/sessions/new'>Return to login</a>")
             }
         }
     })

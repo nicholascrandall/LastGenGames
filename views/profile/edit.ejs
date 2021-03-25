@@ -1,0 +1,25 @@
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/nav.ejs') %>
+
+<main>
+
+    <h2><%=user.username%>'s Profile</h2>
+    <form method="POST" action="/profile/<%=user.username%>?_method=PUT" id="usrform">
+    
+        <label>
+            <span>Image (paste URL):</span>
+            <input type="text" name="avatar" value="<%=user.avatar%>" />
+        </label>
+        <br>
+        <br>
+    
+        <input id = "editsubmit" type="submit" value="Submit Changes" />
+    </form>
+
+    <h2>About Me</h2>
+    <textarea name="about" form="usrform" cols="70" rows="10" wrap="soft"></textarea>
+
+</main>
+
+
+<%- include('../partials/footer.ejs') %>
