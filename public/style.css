@@ -39,9 +39,6 @@ body {
     font-size: larger;
     text-decoration: underline;
 }
-.home {
-    display: flex;
-}
 a img {
     height: 500px;
     width: 500px;
@@ -63,7 +60,6 @@ ul {
 #nav {
   position: fixed;
   top: 0;
-  width: 100%;
   font-size: 24px;
 }
 footer {
@@ -83,11 +79,3 @@ a:hover {
 #nav li, .right li {
     margin-right: 10px;
 }
-.right {
-    position: fixed;
-    align-self: flex-end
-    top: 0;
-    width: 100%;
-    font-size: 24px;
-}
-

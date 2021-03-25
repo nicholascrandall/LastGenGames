@@ -56,7 +56,7 @@ const profileControllers = require('./controllers/profile.js')
 app.use('/profile', isAuthenticated, profileControllers)
 
 const usersControllers = require('./controllers/users.js')
-app.use('/users', isAuthenticated,  usersControllers);
+app.use('/users', usersControllers);
 
 const sessionsControllers = require('./controllers/sessions.js')
 app.use('/sessions', sessionsControllers);

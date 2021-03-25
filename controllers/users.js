@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 
 // USER NEW ROUTE
 router.get('/new', (req, res)=>{
-    res.render('users/new.ejs',{ currentUser: req.session.currentUser})
+    res.render('./users/new.ejs',{ currentUser: req.session.currentUser})
 })
 
 
@@ -19,14 +19,14 @@ router.post('/', (req, res)=>{
     User.create(req.body, (err, createdUser)=>{
         if  (err){
             if (err.code===11000){
-                res.send("<h1>An account with this username already exists.</h1> <br> <a href="/users/new">Try another username</a>")
+                res.send("<h1>An account with this username already exists.</h1> <br> <a href='/users/new'>Try another username</a>")
             }
             else{
                 res.send(err)
             }
         }
         else{
-            res.send(createdUser)
+            res.send("<h1>Account successfully created!</h1> <br> <a href='/sessions/new'>Log in Here</a>")
         }
     })
 })

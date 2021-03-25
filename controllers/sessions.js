@@ -33,7 +33,7 @@ router.post('/', (req, res) => {
 
             }
             else{
-                res.send("<h1>This username does not exist.</h1> <br> <a href="/users/new">Register an account here</a>")
+                res.send("<h1>This username does not exist.</h1> <br> <a href='/users/new'>Register an account here</a>")
             }
         }
     })

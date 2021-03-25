@@ -1,0 +1,29 @@
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/nav.ejs') %>
+
+    <main>
+
+        <h4>Register for Last Gen</h4>
+        <a href="/sessions/new">Already have an account? Log in here!</a>
+        <hr>
+        <br>
+
+        <form action="/users" method="POST">
+
+            <label>
+                <span>Username:</span>
+                <input type="text" name="username" />
+            </label>
+            <br>
+            <label>
+                <span>Password:</span>
+                <input type="password" name="password" />
+            </label>
+            <br>
+            <br>
+            <input type="submit" value="Register" />
+        </form>
+
+    </main>
+
+<%- include('../partials/footer.ejs') %>
