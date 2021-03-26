@@ -34,7 +34,7 @@ router.get('/seed', (req, res) => {
             year: 1998,
             img: "OOT.jpeg",
             price: 40,
-            qty: 3,
+            qty: 15,
             user: false,
         },
         {
@@ -44,7 +44,7 @@ router.get('/seed', (req, res) => {
             year: 1998,
             img: "Spyro_the_Dragon.jpg",
             price: 30,
-            qty: 1,
+            qty: 5,
             user: false,
         },
         {
@@ -114,6 +114,13 @@ router.get('/:id/edit', (req, res) => {
 router.put('/:id', (req, res) => {
     Game.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedGame) => {
         res.redirect('/games')
+    })
+})
+
+//PATCH game
+router.patch('/:id', (req, res) => {
+    Game.findByIdAndUpdate(req.params.id, {"$inc": {"qty": -1}}, (err, foundItem) => {
+        res.redirect('back')
     })
 })
 

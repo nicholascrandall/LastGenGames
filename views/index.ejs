@@ -13,17 +13,20 @@
                     <p><%=games[i].platform%></p>
                     <p>$<%=games[i].price%>.00</p>
                 </div>
-                <% if (games[i].user === true) { %>
-                    <a href="/games/<%=games[i].id%>/edit">Edit</a>
+                
+                <a href="/games/<%=games[i].id%>/edit">Edit</a>
             
-                    <form method="POST" action="/games/<%= games[i].id %>?_method=DELETE">
+                <form method="POST" action="/games/<%= games[i].id %>?_method=DELETE">
                     <button>Delete</button>
-                    </form>
-                    <br>
-               <% } %>
-
+                </form>
+                <br>
+               
                 <% if (games[i].qty > 0) { %>
-                    <img id = "buy" src="/assets/buy.png" alt="Buy Now">
+                    <form action="/games/<%=games[i].id%>?_method=PATCH" method="POST">
+
+                        <input type="image" id = "buy" src="/assets/buy.png" alt="Buy Now">
+
+                    </form>
                     <p><%=games[i].qty%> left in stock</p>
             <%   } else { %>
                     <img id = "sold" src="/assets/soldOut.png" alt="Sold Out">

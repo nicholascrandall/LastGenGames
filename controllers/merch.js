@@ -60,4 +60,11 @@ router.get('/:id', (req, res) => {
     })
 })
 
+//PATCH merch
+router.patch('/:id', (req, res) => {
+    Merch.findByIdAndUpdate(req.params.id, {"$inc": {"qty": -1}}, (err, foundItem) => {
+        res.redirect('back')
+    })
+})
+
 module.exports = router;

@@ -12,7 +12,11 @@
         <h4>Platforms: <%=game.platform%></h4>
     </div>
     <% if (game.qty > 0) { %>
-        <img id = "buyShow" src="/assets/buy.png" alt="Buy Now">
+        <form action="/games/<%=game.id%>?_method=PATCH" method="POST">
+
+            <input type="image" id = "buy" src="/assets/buy.png" alt="Buy Now">
+
+        </form>
         <h3><%=game.qty%> left in stock</h3>
 <%  } else { %>
         <img id = "soldShow" src="/assets/soldOut.png" alt="Sold Out">
