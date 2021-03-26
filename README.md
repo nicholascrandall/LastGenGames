@@ -4,7 +4,7 @@
 
 Last Gen Games is an online store where you can buy and sell older video games.  We also have a merchandise section where you can purchase mugs, shirts, and controllers.  All registered users have a unique profile page that they can edit and share with friends!
 
-##User Stories
+## User Stories
 * Users can register an account on our site and use it to log in.
 * Users can rest easy knowing their passwords are hashed and salted.
 * Users can view an index of video games.
@@ -18,7 +18,7 @@ Last Gen Games is an online store where you can buy and sell older video games. 
 * Users can edit their profiles to add text to the about me section and change the picture via URL to any image on the internet.
 * If users have a locally stored picture they'd like to use, it's recommended to upload it to a free image hosting site such as Imgur, and then link our site to the hosted URL.
 
-##Unsolved Problems/Things to implement
+## Unsolved Problems/Things to implement
 * Direct image uploading is not yet implemented
 * The ability to rate or add comments to games or merchandise is not yet implemented
 * Currently, store items are NOT tied to the user that created them, so anyone can edit or delete any Game from the store :)
