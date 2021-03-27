@@ -6,7 +6,7 @@ const gameSchema= new Schema({
     platform: String,
     description: String,
     year: Number,
-    img: String,
+    img: {type: String, default: "defaultgame.png"},
     price: {type: Number, min: 0, default: 0},
     qty: {type: Number, min: 0, default: 1},
     user: {type: Boolean, default: true}
