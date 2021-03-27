@@ -7,7 +7,7 @@
     <ul>
         <% for(let i = 0; i < merch.length; i++) { %>
             <li>
-                <img class = "merchImg" id = "<%=merch[i].id%>" src="/assets/<%=merch[i].img%>" alt="merch pic">
+                <img class = "gameImg" id = "<%=merch[i].id%>" src="/assets/<%=merch[i].img%>" alt="merch pic">
                 <div>
                     <a href="/merch/<%=merch[i].id%>"> <%= merch[i].name %> </a>
                     <p>$<%=merch[i].price%>.00</p>
